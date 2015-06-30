@@ -9,16 +9,15 @@ if (isset($_SESSION['login'])) {
     ?>
     <table>
         <tr>
-            <th>Hotspot_id</th>
+            <th style="border: 1px solid #ccc">Hotspot_id</th>
         </tr>
     <?php foreach ($hotspot_id as $hotspot):?>
         <tr>
 
-            <td><a href="<?=base_url(); ?>user/get_hotspots/<?= $hotspot->hotspot_id;?>"><?php echo $hotspot->hotspot_id ; ?></a></td>
+            <td style="border: 1px solid #ccc"><a href="<?=base_url(); ?>user/get_hotspots/<?= $hotspot->hotspot_id;?>"><?php echo $hotspot->hotspot_id ; ?></a></td>
 
         </tr>
     <?php endforeach;?>
 <?php
-echo anchor(base_url() . 'user/get_hotspots', '4daa5936');
 }
 ?>
