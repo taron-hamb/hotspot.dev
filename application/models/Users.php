@@ -59,10 +59,10 @@ class Users extends CI_Model
     public function get_excel($from_time, $to_time)
     {
 
+            $result = $this->db->query("SELECT * FROM requests WHERE UNIX_TIMESTAMP(login) BETWEEN '$from_time' AND '$to_time'");
 
-        $result = $this->db->query("SELECT * FROM requests WHERE UNIX_TIMESTAMP(login) BETWEEN '$from_time' AND '$to_time'");
+            return $result->result_array();
 
-        return $result->result_array();
     }
 
 
