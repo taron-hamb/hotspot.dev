@@ -176,7 +176,7 @@ class CI_Session {
 	// ------------------------------------------------------------------------
 
 	/**
-	 * CI Load Classes
+	 * CI Load PHPExcel
 	 *
 	 * An internal method to load all possible dependency and extension
 	 * classes. It kind of emulates the CI_Driver library, but is

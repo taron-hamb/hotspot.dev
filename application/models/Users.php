@@ -37,9 +37,32 @@ class Users extends CI_Model {
 
     public function get_hotspot($hotspot_id)
     {
+        $this->db->select('login');
+
+
         $this->db->where('hotspot_id', $hotspot_id);
         $query = $this->db->get('requests');
-        return $query->result();
+        $result =  $query->result();
+        $sort = array();
+
+        foreach ($result as $login) {
+            array_push($sort,$login->login);
+        }
+
+
+        sort($sort);
+
+        $from_time = strtotime($sort[0]) - 60*60*24;
+
+        return $from_time;
+
+    }
+    public function get_excell($from_time,$to_time){
+
+
+        $result = $this->db->query("SELECT * FROM requests WHERE UNIX_TIMESTAMP(login) BETWEEN '$from_time' AND '$to_time'");
+
+        return $result->result_array();
     }
 
 }
