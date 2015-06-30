@@ -26,7 +26,14 @@ class User extends CI_Controller {
     {
         if(isset($_SESSION['login']))
         {
-            $this->load->view('user_page');
+
+
+
+
+            $this->load->model('users');
+            $data['hotspot_id'] = $this->users->get_hotspots();
+
+            $this->load->view('user_page', $data);
         }
         else
         {
@@ -53,7 +60,11 @@ class User extends CI_Controller {
                 {
                     $array = array('login' => $login);
                     $this->session->set_userdata($array);
-                    $this->load->view('user_page', $data);
+
+                    $this->load->model('users');
+                    $h['v'] = $this->users->get_hotspots();
+
+                    $this->load->view('user_page', $h);
                 }
                 else
                 {

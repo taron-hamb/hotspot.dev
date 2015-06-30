@@ -28,6 +28,16 @@ class Users extends CI_Model {
 
     public function get_hotspots()
     {
+        $this->db->distinct();
+        $this->db->select('hotspot_id');
+
+        $query = $this->db->get('requests');
+        return $query->result();
+    }
+
+    public function get_hotspot($hotspot_id)
+    {
+        $this->db->where('hotspot_id', $hotspot_id);
         $query = $this->db->get('requests');
         return $query->result();
     }
