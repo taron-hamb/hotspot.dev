@@ -30,14 +30,14 @@ while($to_time < $now){
 };
 echo '<a href="csv.php?from='.$from_time.'&to='.$to_time.'">from_'.$to.'_to_'.date('Y-m-d',$now).'</a><br>';
 if (isset($_GET['from']) && isset($_GET['to']) && !empty($_GET['from']) && !empty($_GET['to'])) {
-    require_once 'C:/xampp/htdocs/Classes/PHPExcel.php';
+
 
 
     $from_time = $_GET['from'];
     $to_time = $_GET['to'];
     $query = "SELECT * FROM requests WHERE UNIX_TIMESTAMP(login) BETWEEN '$from_time' AND '$to_time'";
     $result = mysql_query($query);
-    $time = date("d-m-Y_H\.i");
+    $time = date("d-m-Y_H_i");
     $fp = fopen('csv/Csv-'.$time.'.csv', 'w');
 
     while($row = mysql_fetch_assoc($result)){

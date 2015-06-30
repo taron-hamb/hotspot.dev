@@ -73,15 +73,24 @@ $objPHPExcel->getActiveSheet()->getStyle('A1:' . $c . '1')->applyFromArray(
 
 
 //$objPHPExcel->getActiveSheet()->getColumnDimension('B')->setAutoSize(true);
-//$objPHPExcel->getActiveSheet()->getColumnDimension('E')->setAutoSize(true);4
+//$objPHPExcel->getActiveSheet()->getColumnDimension('E')->setAutoSize(true);
 
 
 // Save Excel 2007 file
 
 $time = date("d-m-Y_H_i");
 
-$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
-$objWriter->save('excel/Exel-' . $time . '.xlsx');
-header('Content-Type: application/vnd.ms-excel');
-header('Content-Disposition: attachment;filename="Exel-' . $time . '.xlsx"');
-header('Cache-Control: max-age=0');
+$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
+$objWriter->save('excel/Excel-' . $time . '.xls');
+
+
+//header('Content-Type: application/vnd.ms-excel');
+//header('Content-Disposition:attachment; filename="Excel-' . $time . '.xls"');
+//header('Cache-Control: max-age=0');
+//
+header("Content-Disposition: attachment; filename=Excel-" . $time .".xlsx;");
+header('Content-Type: application/octet-stream');
+//header('Content-Length: ' . filesize($filename));
+header("Pragma: no-cache");
+header("Expires: 0");
+echo file_get_contents($_SERVER['DOCUMENT_ROOT'].'/excel/Excel-' . $time . '.xlsx');

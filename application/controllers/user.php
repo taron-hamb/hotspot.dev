@@ -85,21 +85,38 @@ class User extends CI_Controller {
         $hotspots['hotspots'] = $this->users->get_hotspots();
         $this->load->view('all_hotspots', $hotspots);
     }
+
     public function get_hotspot($hotspot_id)
     {
-        $this->load->model('users');
-        $time['from'] = $this->users->get_hotspot($hotspot_id);
-        $this->load->view('all_hotspots', $time);
+        if(isset($_SESSION['login'])) {
+            $this->load->model('users');
+            $time['from'] = $this->users->get_hotspot($hotspot_id);
+            $this->load->view('all_hotspots', $time);
+        }
+
     }
+
     public function get_excel($from_time,$to_time)
     {
 
         $this->load->library('excel');
 
         $this->load->model('users');
-        $data['excel'] = $this->users->get_excell($from_time,$to_time);
+        $data['excel'] = $this->users->get_excel($from_time,$to_time);
 
         $this->load->view('excel_view',$data);
+
+
+    }
+    public function get_csv($from_time,$to_time)
+    {
+
+        $this->load->library('excel');
+
+        $this->load->model('users');
+        $data['csv'] = $this->users->get_excel($from_time,$to_time);
+
+        $this->load->view('csv_view',$data);
 
 
     }
