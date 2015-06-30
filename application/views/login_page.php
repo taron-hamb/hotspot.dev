@@ -1,0 +1,7 @@
+<form action="<?php echo base_url(); ?>user/login" method="post">
+    <table>
+        <tr><td><input name="login" type="text" placeholder="Login"/></td></tr>
+        <tr><td><input name="password" type="password" placeholder="Password"/></td></tr>
+        <tr><td><input type="submit" value="Log In"/></td></tr>
+    </table>
+</form>
