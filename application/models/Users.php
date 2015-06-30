@@ -26,4 +26,10 @@ class Users extends CI_Model {
 
     }
 
+    public function get_hotspots()
+    {
+        $query = $this->db->get('requests');
+        return $query->result();
+    }
+
 }

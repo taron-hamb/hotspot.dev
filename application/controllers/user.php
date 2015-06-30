@@ -68,4 +68,10 @@ class User extends CI_Controller {
 
     }
 
+    public function get_hotspots()
+    {
+        $this->load->model('users');
+        $hotspots['hotspots'] = $this->users->get_hotspots();
+        $this->load->view('all_hotspots', $hotspots);
+    }
 }
