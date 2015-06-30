@@ -5,43 +5,64 @@ class User extends CI_Controller {
 
     public function index()
     {
-        $this->load->view('login_page');
+        if(isset($_SESSION['login']))
+        {
+            $this->load->view('user_page');
+        }
+        else
+        {
+            $this->load->view('login_page');
+        }
+
+    }
+
+    public function logout()
+    {
+        unset($_SESSION['login']);
+        $this->index();
     }
 
     public function login()
     {
-
-        $this->load->helper(array('form', 'url'));
-        $this->load->library('form_validation');
-
-        $this->form_validation->set_rules('login', 'trim|required|min_length[5]|max_length[12]|xss_clean');
-        $this->form_validation->set_rules('password', 'trim|required|md5');
-
-        if($this->form_validation->run() == false)
+        if(isset($_SESSION['login']))
         {
-            $this->load->view('login_page');
+            $this->load->view('user_page');
         }
         else
         {
-            $login = $this->input->post('login');
-            $password = $this->input->post('password');
+            $this->load->helper(array('form', 'url'));
+            $this->load->library('form_validation');
 
-            $this->load->model('users');
-//            var_dump( $this->load->model('users'));exit;
+            $this->form_validation->set_rules('login', 'trim|required|min_length[5]|max_length[12]|xss_clean');
+            $this->form_validation->set_rules('password', 'trim|required|md5');
 
-            $value = $this->users->login($login, $password);
-            $data['login'] = $login;
-            if($value)
+            if($this->form_validation->run() == false)
             {
-                $this->load->view('user_page', $data);
+                $this->load->view('login_page');
             }
             else
             {
-                header('Location: login/');
-//                $this->form_validation->set_message('login', 'password ');
-//                redirect('login',$login);
+                $login = $this->input->post('login');
+                $password = $this->input->post('password');
 
+                $this->load->model('users');
+
+                $value = $this->users->login($login, $password);
+                $data['login'] = $login;
+                if($value)
+                {
+                    $array = array('login' => $login);
+                    $this->session->set_userdata($array);
+                    $this->load->view('user_page', $data);
+                }
+                else
+                {
+                    $message['message'] = 'Please try again';
+                    $this->load->view('login_page', $message);
+
+                }
             }
+
         }
 
 

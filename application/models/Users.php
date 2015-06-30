@@ -11,10 +11,9 @@ class Users extends CI_Model {
     {
 
         $this->db->where('login', $login);
-        $this->db->where('password', $password);
+        $this->db->where('password', md5($password));
         $query = $this->db->get('users');
-//        echo "<pre>";
-//var_dump($query->result_id->num_rows);exit;
+
         if($query->result_id->num_rows == 1)
         {
             return true;
