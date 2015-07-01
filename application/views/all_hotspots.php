@@ -25,15 +25,15 @@ if(isset($_SESSION['login'])) {
                     <a href="<?php echo base_url(); ?>user/logout"><button type="submit" class="btn btn-success">Log Out</button></a>
                 </div>
             </div>
-            <table class="table table-striped">
+            <table class="table table-striped table-hover table-bordered">
 <?php
         while($to_time <= $to_last){
 ?>
-            <tr><td>
+            <tr>
 <?php
             $from =  date('Y-m-d',$from_time);
             $to = date('Y-m-d',$to_time);
-            echo 'From '.$from.' To '.$to.'&nbsp;<a href="'.base_url().'user/get_excel/'.$from_time.'/'.$to_time.'/" data-toggle="tooltip" data-placement="top" title="Download Excel"><img src="/assets/img/excel.png" ></a>&nbsp;<a href="'.base_url().'user/get_csv/'.$from_time.'/'.$to_time.'/" data-toggle="tooltip" data-placement="top" title="Download CSV"><img src="/assets/img/csv.png"></a>&nbsp;<a href="'.base_url().'user/delete/'.$from_time.'/'.$to_time.'/" data-toggle="tooltip" data-placement="top" title="Delete"><img src="/assets/img/delete.png"></a><br>';
+            echo '<td>From '.$from.' To '.$to.'&nbsp;</td><td><a href="'.base_url().'user/get_excel/'.$from_time.'/'.$to_time.'/" data-toggle="tooltip" data-placement="top" title="Download Excel"><img src="/assets/img/excel.png" ></a></td><td><a href="'.base_url().'user/get_csv/'.$from_time.'/'.$to_time.'/" data-toggle="tooltip" data-placement="top" title="Download CSV"><img src="/assets/img/csv.png"></a></td>&nbsp;<td><a href="'.base_url().'user/delete/'.$from_time.'/'.$to_time.'/" data-toggle="tooltip" data-placement="top" title="Delete"><img src="/assets/img/delete.png"></a></td>';
             $to_time += $days;
             $from_time += $days;
             if($to_time > $to_last){
@@ -45,7 +45,7 @@ if(isset($_SESSION['login'])) {
                 break;
             }
 ?>
-                </td></tr>
+                </tr>
 <?php
         };
 ?>
