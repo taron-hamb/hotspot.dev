@@ -19,7 +19,7 @@ if (isset($_SESSION['login'])) {
         </div>
             <?php
         ?>
-        <table class="table table-striped">
+        <table class="table table-striped table-bordered">
             <tr>
                 <th>Hotspot_id</th>
             </tr>
