@@ -1,7 +1,6 @@
 .idea
-
-/excel
-
+excel
+csv
+excel/
+csv/
 hotspot.sql
-
-/csv
