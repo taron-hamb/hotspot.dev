@@ -11,9 +11,6 @@ if (isset($_SESSION['login'])) {
         <div class="row log_out_panel">
             <div class="col-xs-9">
                 <h4>Your login: <?php echo $_SESSION['login'] ?></h4>
-<!--                --><?php
-//                echo 'Your login: ' . $_SESSION['login'] ;
-//                ?>
             </div>
             <div class="col-xs-3 log_out">
                 <a href="<?php echo base_url(); ?>user/logout"><button type="submit" class="btn btn-success">Log Out</button></a>

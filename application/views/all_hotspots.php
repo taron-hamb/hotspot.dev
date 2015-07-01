@@ -22,7 +22,7 @@ if(isset($_SESSION['login'])) {
                     <a href="<?php echo base_url(); ?>user/index"><button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i>Back</button></a>
                 </div>
                 <div class="col-xs-3 log_out">
-                    <a href="<?php echo base_url(); ?>user/logout"><button type="submit" class="btn btn-default">Log Out</button></a>
+                    <a href="<?php echo base_url(); ?>user/logout"><button type="submit" class="btn btn-success">Log Out</button></a>
                 </div>
             </div>
             <table class="table table-striped">
