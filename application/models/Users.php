@@ -68,8 +68,7 @@ class Users extends CI_Model
     public function delete($from_time, $to_time){
 
         $result = $this->db->query("DELETE FROM requests WHERE UNIX_TIMESTAMP(login) BETWEEN '$from_time' AND '$to_time'");
-        return true;
-
+        redirect($_SERVER['HTTP_REFERER']);
     }
 
 

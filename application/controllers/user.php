@@ -100,7 +100,11 @@ class User extends CI_Controller {
             {
                 $this->load->model('users');
                 $time['from'] = $this->users->get_hotspot($hotspot_id);
-                $this->load->view('all_hotspots', $time);
+
+
+                    $this->load->view('all_hotspots', $time);
+
+
 
             }
             else

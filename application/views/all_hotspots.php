@@ -1,7 +1,7 @@
 <?php
 if(isset($_SESSION['login'])) {
 
-    if (isset($from)) {
+    if (isset($from) && !empty($from)) {
         $from_time = strtotime($from[0]) - 60 * 60 * 24;
         $to_last = strtotime(end($from));
         $days = 14 * 24 * 60 * 60;
@@ -9,8 +9,11 @@ if(isset($_SESSION['login'])) {
         $now = strtotime('now');
         $to = date('Y-m-d',$to_time);
         $from =  date('Y-m-d',$from_time);
+        if($to_time > $to_last){
 
-        while($to_time <= $now){
+            $to_time = $to_last;
+        }
+        while($to_time <= $to_last){
 
             $from =  date('Y-m-d',$from_time);
             $to = date('Y-m-d',$to_time);
@@ -29,6 +32,9 @@ if(isset($_SESSION['login'])) {
         };
 
 
+    }else{
+
+        redirect('/user/get_hotspot/');
     }
 
 }
