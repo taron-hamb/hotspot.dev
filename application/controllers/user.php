@@ -220,4 +220,22 @@ class User extends CI_Controller {
         }
     }
 
+    public function delete($from_time,$to_time){
+
+        if(isset($_SESSION['login']))
+        {
+
+
+            $this->load->model('users');
+            $this->users->delete($from_time, $to_time);
+            $this->load->view('all_hotspots');
+
+        }
+        else
+        {
+            $this->load->view('login_page');
+        }
+
+    }
+
 }

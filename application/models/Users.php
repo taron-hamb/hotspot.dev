@@ -50,9 +50,9 @@ class Users extends CI_Model
 
         sort($sort);
 
-        $from_time = strtotime($sort[0]) - 60 * 60 * 24;
-
-        return $from_time;
+//        $from_time = strtotime($sort[0]) - 60 * 60 * 24;
+//        $to_time = strtotime($sort[count($sort) - 1]);
+        return $sort;
 
     }
 
@@ -64,6 +64,14 @@ class Users extends CI_Model
             return $result->result_array();
 
     }
+
+    public function delete($from_time, $to_time){
+
+        $result = $this->db->query("DELETE FROM requests WHERE UNIX_TIMESTAMP(login) BETWEEN '$from_time' AND '$to_time'");
+        return true;
+
+    }
+
 
 
 }
