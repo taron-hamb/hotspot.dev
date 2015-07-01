@@ -124,9 +124,10 @@ class User extends CI_Controller {
     {
         if(isset($_SESSION['login']))
         {
-            $this->load->library('excel');
 
+            require_once $_SERVER['DOCUMENT_ROOT'].'/application/libraries/Classes/PHPExcel.php';
             $this->load->model('users');
+
             $data['excel'] = $this->users->get_excel($from_time, $to_time);
 
             $this->load->view('excel_view', $data);
@@ -142,7 +143,7 @@ class User extends CI_Controller {
     {
         if(isset($_SESSION['login']))
         {
-            $this->load->library('excel');
+            //require_once $_SERVER['DOCUMENT_ROOT'].'/application/libraries/Classes/PHPExcel.php';
 
             $this->load->model('users');
             $data['csv'] = $this->users->get_excel($from_time, $to_time);
