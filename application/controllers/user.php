@@ -20,7 +20,7 @@ class User extends CI_Controller {
     public function logout()
     {
         unset($_SESSION['login']);
-        $this->index();
+        header('Location: /');
     }
 
     public function login()
@@ -43,7 +43,7 @@ class User extends CI_Controller {
 
             if($this->form_validation->run() == false)
             {
-                $this->load->view('login_page');
+                header('Location: /');
             }
             else
             {
@@ -59,7 +59,7 @@ class User extends CI_Controller {
                     $array = array('login' => $login);
                     $this->session->set_userdata($array);
 
-                    header('Location: index');
+                    header('Location: /');
                 }
                 else
                 {
@@ -84,7 +84,7 @@ class User extends CI_Controller {
         }
         else
         {
-            $this->load->view('login_page');
+            header('Location: /');
         }
     }
 
@@ -114,7 +114,7 @@ class User extends CI_Controller {
         }
         else
         {
-            $this->load->view('login_page');
+            header('Location: /');
         }
 
     }
@@ -193,12 +193,10 @@ class User extends CI_Controller {
 			header('Cache-Control: max-age=0');
 			$objWriter->save('php://output');
 
-//            $this->load->view('excel_view', $data);
-
         }
         else
         {
-            $this->load->view('login_page');
+            header('Location: /');
         }
 
     }
@@ -207,13 +205,6 @@ class User extends CI_Controller {
     {
         if(isset($_SESSION['login']))
         {
-//            //require_once $_SERVER['DOCUMENT_ROOT'].'/application/libraries/Classes/PHPExcel.php';
-//
-//            $this->load->model('users');
-//            $data['csv'] = $this->users->get_excel($from_time, $to_time);
-//
-//            $this->load->view('csv_view', $data);
-
             require_once $_SERVER['DOCUMENT_ROOT'].'/application/libraries/Classes/PHPExcel.php';
             $this->load->model('users');
 
@@ -287,7 +278,7 @@ class User extends CI_Controller {
         }
         else
         {
-            $this->load->view('login_page');
+            header('Location: /');
         }
     }
 
@@ -301,8 +292,9 @@ class User extends CI_Controller {
         }
         else
         {
-            $this->load->view('login_page');
+            header('Location: /');
         }
 
     }
+
 }
