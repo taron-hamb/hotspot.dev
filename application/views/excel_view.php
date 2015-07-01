@@ -1,7 +1,6 @@
 <?php
 $data = array();
 foreach ($excel as $ex) {
-
     array_push($data, $ex);
 }
 
@@ -20,15 +19,14 @@ array_unshift($data, $rows);
 $objPHPExcel = new PHPExcel();
 
 $objPHPExcel->getActiveSheet()->fromArray($data, null, 'A1');
-
 $objPHPExcel->getActiveSheet()->setTitle('Members');
 
 foreach (range('A', $objPHPExcel->getActiveSheet()->getHighestDataColumn()) as $col) {
     $objPHPExcel->getActiveSheet()
         ->getColumnDimension($col)
         ->setAutoSize(true);
-
 }
+
 $c = $objPHPExcel->getActiveSheet()->getHighestDataColumn();
 
 $objPHPExcel->getActiveSheet()->getStyle('A1:' . $c . '1')->applyFromArray(
@@ -57,24 +55,8 @@ $objPHPExcel->getActiveSheet()->getStyle('A1:' . $c . '1')->applyFromArray(
     )
 );
 
-
-//$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
-//$objWriter->save('excel/Excel_' . $time . '.xls');
-//
-//
-//$fileName = 'Excel_' . $time . '.xls';
-//$filePath = $_SERVER['DOCUMENT_ROOT'].'/excel/' . $fileName;
-//
-//header("Content-Type: application/vnd.ms-excel");
-//header("Content-Disposition: attachment; filename=".$fileName);
-//header("Pragma: no-cache");
-//header ("Expires: 0");
-//
-//echo file_get_contents($filePath);
-//exit;
 $time = date("d-m-Y_H_i");
 $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
-$objWriter->save('excel/Excel_' . $time . '.xls');
 header('Content-Type: application/vnd.ms-excel');
 header('Content-Disposition: attachment;filename="Excel_' . $time . '.xls"');
 header('Cache-Control: max-age=0');
