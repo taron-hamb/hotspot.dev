@@ -59,10 +59,7 @@ class User extends CI_Controller {
                     $array = array('login' => $login);
                     $this->session->set_userdata($array);
 
-                    $this->load->model('users');
-                    $data['hotspot_id'] = $this->users->get_hotspots();
-
-                    $this->load->view('user_page', $data);
+                    header('Location: index');
                 }
                 else
                 {
@@ -292,24 +289,6 @@ class User extends CI_Controller {
         {
             $this->load->view('login_page');
         }
-    }
-
-    public function delete($from_time,$to_time){
-
-        if(isset($_SESSION['login']))
-        {
-
-
-            $this->load->model('users');
-            $this->users->delete($from_time, $to_time);
-            $this->load->view('all_hotspots');
-
-        }
-        else
-        {
-            $this->load->view('login_page');
-        }
-
     }
 
     public function delete($from_time,$to_time)

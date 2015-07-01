@@ -36,5 +36,5 @@ if (isset($_SESSION['login'])) {
         </table>
     </div>
 <?php
+    include_once('footer.php');
 }
-include_once('footer.php');
