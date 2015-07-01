@@ -17,7 +17,7 @@ if(isset($_SESSION['login'])) {
 
             $from =  date('Y-m-d',$from_time);
             $to = date('Y-m-d',$to_time);
-            echo 'From '.$from.' To '.$to.'&nbsp;<a href="'.base_url().'user/get_excel/'.$from_time.'/'.$to_time.'/"><img src="/assets/img/excel.png"></a>&nbsp;<a href="'.base_url().'user/get_csv/'.$from_time.'/'.$to_time.'/"><img src="/assets/img/csv.png"></a>&nbsp;<a href="'.base_url().'user/delete/'.$from_time.'/'.$to_time.'/"><img src="/assets/img/delete.png"></a><br>';
+            echo 'From '.$from.' To '.$to.'&nbsp;<a href="'.base_url().'user/get_excel/'.$from_time.'/'.$to_time.'/"><img src="/resources/img/excel.png" style="height:25px;"></a>&nbsp;<a href="'.base_url().'user/get_csv/'.$from_time.'/'.$to_time.'/"><img src="/resources/img/csv.png" style="height:25px;"></a>&nbsp;<a href="'.base_url().'user/delete/'.$from_time.'/'.$to_time.'/"><img src="/resources/img/delete.png" style="height:25px;"></a><br>';
             $to_time += $days;
             $from_time += $days;
             if($to_time > $to_last){
