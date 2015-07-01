@@ -269,7 +269,7 @@ class User extends CI_Controller {
             );
 
             $time = date("d-m-Y_H_i");
-            $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
+            $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'CSV');
             $objWriter->save('csv/Csv_' . $time . '.csv');
             header('Content-Type: application/vnd.ms-excel');
             header('Content-Disposition: attachment;filename="Csv_' . $time . '.csv"');

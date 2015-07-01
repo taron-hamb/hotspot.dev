@@ -2,7 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05b38145-16dc-4a26-9042-5c96856d869e" name="Default" comment="">
+<<<<<<< HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/header.php" afterPath="$PROJECT_DIR$/application/views/header.php" />
+=======
+<<<<<<< HEAD
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/all_hotspots.php" afterPath="$PROJECT_DIR$/application/views/all_hotspots.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/config.php" afterPath="$PROJECT_DIR$/application/config/config.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/database.php" afterPath="$PROJECT_DIR$/application/config/database.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/header.php" afterPath="$PROJECT_DIR$/application/views/header.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/user.php" afterPath="$PROJECT_DIR$/application/controllers/user.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/user_page.php" afterPath="$PROJECT_DIR$/application/views/user_page.php" />
+>>>>>>> a9e341bb2030eb051f4c38f41f51c7cf7c55ecbd
+>>>>>>> c3587ef266a3515a6fe3f10b0219129b9dde4de6
     </list>
     <ignored path="hotspot.dev.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,8 +44,17 @@
       <file leaf-file-name="user.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/user.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="459">
+=======
+<<<<<<< HEAD
+            <state vertical-scroll-proportion="-20.923077" vertical-offset="0" max-vertical-offset="646">
+              <caret line="307" column="1" selection-start-line="307" selection-start-column="1" selection-end-line="307" selection-end-column="1" />
+=======
+            <state vertical-scroll-proportion="0.30952382" vertical-offset="0" max-vertical-offset="714">
+>>>>>>> c3587ef266a3515a6fe3f10b0219129b9dde4de6
               <caret line="90" column="51" selection-start-line="90" selection-start-column="51" selection-end-line="90" selection-end-column="51" />
+>>>>>>> a9e341bb2030eb051f4c38f41f51c7cf7c55ecbd
               <folding>
                 <element signature="n#index#0;n#User#0;n#!!top" expanded="false" />
                 <element signature="n#logout#0;n#User#0;n#!!top" expanded="false" />
@@ -46,6 +69,14 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file leaf-file-name="config.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/config/config.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.0" vertical-offset="63" max-vertical-offset="8585">
+              <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+              <folding />
+=======
       <file leaf-file-name="login_page.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/login_page.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -54,6 +85,7 @@
               <folding>
                 <element signature="e#111#133#0#HTML" expanded="true" />
               </folding>
+>>>>>>> a9e341bb2030eb051f4c38f41f51c7cf7c55ecbd
             </state>
           </provider>
         </entry>
@@ -88,11 +120,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="699">
+              <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
+=======
             <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="187">
               <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+>>>>>>> a9e341bb2030eb051f4c38f41f51c7cf7c55ecbd
               <folding />
             </state>
           </provider>
@@ -121,12 +158,22 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/application/views/login_page.php" />
+        <option value="$PROJECT_DIR$/application/config/config.php" />
+        <option value="$PROJECT_DIR$/application/config/database.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+=======
         <option value="$PROJECT_DIR$/application/config/database.php" />
         <option value="$PROJECT_DIR$/application/config/config.php" />
         <option value="$PROJECT_DIR$/application/views/user_page.php" />
         <option value="$PROJECT_DIR$/application/views/all_hotspots.php" />
         <option value="$PROJECT_DIR$/application/controllers/user.php" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/application/views/header.php" />
+=======
+>>>>>>> a9e341bb2030eb051f4c38f41f51c7cf7c55ecbd
+>>>>>>> c3587ef266a3515a6fe3f10b0219129b9dde4de6
       </list>
     </option>
   </component>
@@ -514,6 +561,8 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/footer.php">
+<<<<<<< HEAD
+=======
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="714">
           <caret line="0" column="103" selection-start-line="0" selection-start-column="103" selection-end-line="0" selection-end-column="103" />
@@ -521,6 +570,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/config/routes.php">
+>>>>>>> a9e341bb2030eb051f4c38f41f51c7cf7c55ecbd
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.39215687" vertical-offset="280" max-vertical-offset="1020">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -559,16 +609,60 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/application/config/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.0" vertical-offset="63" max-vertical-offset="8585">
+          <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9140401" vertical-offset="807" max-vertical-offset="1547">
+          <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+=======
     <entry file="file://$PROJECT_DIR$/application/views/user_page.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="714">
           <caret line="15" column="107" selection-start-line="15" selection-start-column="95" selection-end-line="15" selection-end-column="107" />
+>>>>>>> a9e341bb2030eb051f4c38f41f51c7cf7c55ecbd
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/login_page.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.1704871" vertical-offset="0" max-vertical-offset="850">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/user.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.923077" vertical-offset="0" max-vertical-offset="646">
+          <caret line="307" column="1" selection-start-line="307" selection-start-column="1" selection-end-line="307" selection-end-column="1" />
+          <folding>
+            <element signature="n#logout#0;n#User#0;n#!!top" expanded="false" />
+            <element signature="n#login#0;n#User#0;n#!!top" expanded="false" />
+            <element signature="n#get_hotspots#0;n#User#0;n#!!top" expanded="false" />
+            <element signature="n#get_hotspot#0;n#User#0;n#!!top" expanded="false" />
+            <element signature="n#get_excel#0;n#User#0;n#!!top" expanded="false" />
+            <element signature="n#get_csv#0;n#User#0;n#!!top" expanded="false" />
+            <element signature="n#delete#0;n#User#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="699">
+          <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
+          <folding />
+=======
         <state vertical-scroll-proportion="-5.230769" vertical-offset="0" max-vertical-offset="850">
           <caret line="8" column="52" selection-start-line="8" selection-start-column="52" selection-end-line="8" selection-end-column="52" />
           <folding>
@@ -599,6 +693,7 @@
             <element signature="n#get_csv#0;n#User#0;n#!!top" expanded="false" />
             <element signature="n#delete#0;n#User#0;n#!!top" expanded="false" />
           </folding>
+>>>>>>> a9e341bb2030eb051f4c38f41f51c7cf7c55ecbd
         </state>
       </provider>
     </entry>

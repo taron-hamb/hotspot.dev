@@ -300,3 +300,6 @@ label:hover:before {
     color: #aaaaaa;
     font-weight: bold;
 }
+.icons_td{
+    width: 25px;
+}
