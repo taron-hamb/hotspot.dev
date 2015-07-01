@@ -211,12 +211,83 @@ class User extends CI_Controller {
     {
         if(isset($_SESSION['login']))
         {
-            //require_once $_SERVER['DOCUMENT_ROOT'].'/application/libraries/Classes/PHPExcel.php';
+//            //require_once $_SERVER['DOCUMENT_ROOT'].'/application/libraries/Classes/PHPExcel.php';
+//
+//            $this->load->model('users');
+//            $data['csv'] = $this->users->get_excel($from_time, $to_time);
+//
+//            $this->load->view('csv_view', $data);
 
+            require_once $_SERVER['DOCUMENT_ROOT'].'/application/libraries/Classes/PHPExcel.php';
             $this->load->model('users');
-            $data['csv'] = $this->users->get_excel($from_time, $to_time);
 
-            $this->load->view('csv_view', $data);
+            $data['excel'] = $this->users->get_excel($from_time, $to_time);
+
+            $excel = $data['excel'];
+
+            $data = array();
+            foreach ($excel as $ex) {
+                array_push($data, $ex);
+            }
+
+            $rows = array();
+            $i =0;
+            foreach ($data as $item) {
+                while ($i < count($item)) {
+                    foreach ($item as $it => $key) {
+                        array_push($rows, $it);
+                        $i++;
+                    }
+                }
+            }
+            array_unshift($data, $rows);
+
+            $objPHPExcel = new PHPExcel();
+
+            $objPHPExcel->getActiveSheet()->fromArray($data, null, 'A1');
+            $objPHPExcel->getActiveSheet()->setTitle('Members');
+
+            foreach (range('A', $objPHPExcel->getActiveSheet()->getHighestDataColumn()) as $col) {
+                $objPHPExcel->getActiveSheet()
+                    ->getColumnDimension($col)
+                    ->setAutoSize(true);
+            }
+
+            $c = $objPHPExcel->getActiveSheet()->getHighestDataColumn();
+
+            $objPHPExcel->getActiveSheet()->getStyle('A1:' . $c . '1')->applyFromArray(
+                array(
+                    'font' => array(
+                        'bold' => true
+                    ),
+                    'alignment' => array(
+                        'horizontal' => PHPExcel_Style_Alignment::HORIZONTAL_RIGHT,
+                    ),
+                    'borders' => array(
+                        'top' => array(
+                            'style' => PHPExcel_Style_Border::BORDER_THIN
+                        )
+                    ),
+                    'fill' => array(
+                        'type' => PHPExcel_Style_Fill::FILL_GRADIENT_LINEAR,
+                        'rotation' => 90,
+                        'startcolor' => array(
+                            'argb' => 'FFA0A0A0'
+                        ),
+                        'endcolor' => array(
+                            'argb' => 'FFFFFFFF'
+                        )
+                    )
+                )
+            );
+
+            $time = date("d-m-Y_H_i");
+            $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
+            $objWriter->save('csv/Csv_' . $time . '.csv');
+            header('Content-Type: application/vnd.ms-excel');
+            header('Content-Disposition: attachment;filename="Csv_' . $time . '.csv"');
+            header('Cache-Control: max-age=0');
+            $objWriter->save('php://output');
         }
         else
         {
