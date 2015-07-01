@@ -81,43 +81,79 @@ class User extends CI_Controller {
 
     public function get_hotspots()
     {
-        $this->load->model('users');
-        $hotspots['hotspots'] = $this->users->get_hotspots();
-        $this->load->view('all_hotspots', $hotspots);
+        if(isset($_SESSION['login']))
+        {
+            $this->load->model('users');
+            $hotspots['hotspots'] = $this->users->get_hotspots();
+            $this->load->view('all_hotspots', $hotspots);
+        }
+        else
+        {
+            $this->load->view('login_page');
+        }
     }
 
-    public function get_hotspot($hotspot_id)
+    public function get_hotspot($hotspot_id = null)
     {
-        if(isset($_SESSION['login'])) {
-            $this->load->model('users');
-            $time['from'] = $this->users->get_hotspot($hotspot_id);
-            $this->load->view('all_hotspots', $time);
+        if(isset($_SESSION['login']))
+        {
+            if(isset($hotspot_id))
+            {
+                $this->load->model('users');
+                $time['from'] = $this->users->get_hotspot($hotspot_id);
+                $this->load->view('all_hotspots', $time);
+
+            }
+            else
+            {
+                $this->load->model('users');
+                $data['hotspot_id'] = $this->users->get_hotspots();
+
+                $this->load->view('user_page', $data);
+            }
+
+        }
+        else
+        {
+            $this->load->view('login_page');
         }
 
     }
 
     public function get_excel($from_time,$to_time)
     {
+        if(isset($_SESSION['login']))
+        {
 
-        $this->load->library('excel');
+            require_once $_SERVER['DOCUMENT_ROOT'].'/application/libraries/Classes/PHPExcel.php';
+            $this->load->model('users');
 
-        $this->load->model('users');
-        $data['excel'] = $this->users->get_excel($from_time,$to_time);
+            $data['excel'] = $this->users->get_excel($from_time, $to_time);
 
-        $this->load->view('excel_view',$data);
-
+            $this->load->view('excel_view', $data);
+        }
+        else
+        {
+            $this->load->view('login_page');
+        }
 
     }
+
     public function get_csv($from_time,$to_time)
     {
+        if(isset($_SESSION['login']))
+        {
+            //require_once $_SERVER['DOCUMENT_ROOT'].'/application/libraries/Classes/PHPExcel.php';
 
-        $this->load->library('excel');
+            $this->load->model('users');
+            $data['csv'] = $this->users->get_excel($from_time, $to_time);
 
-        $this->load->model('users');
-        $data['csv'] = $this->users->get_excel($from_time,$to_time);
-
-        $this->load->view('csv_view',$data);
-
-
+            $this->load->view('csv_view', $data);
+        }
+        else
+        {
+            $this->load->view('login_page');
+        }
     }
+
 }
