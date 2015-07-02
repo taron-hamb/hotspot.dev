@@ -75,14 +75,19 @@ class Users extends CI_Model
     public function hotspot_request($count,$hotspot_id){
 
         $now = date('Y-m-d H:i:s');
-        for($i = 1;$i < $count;$i++){
 
+        $browser = ['iPhone/Safari','Windows/Chrome','Linux/Chrome'];
+        $email = 'abcdefghijklmnopqrstuvwxyz';
+        for($i = 1;$i < $count;$i = $i + 7){
+          $em_shuff = str_shuffle($email);
+            $em = substr($em_shuff,0,7);
+           shuffle($browser);
             $time = strtotime($now) + $i*18*54*36;
             $data['login'] = date('Y-m-d H:i:s',$time);
-            $data['email'] = 'example@mail.com';
+            $data['email'] = $em.'@gmail.com';
             $data['hotspot_id'] = $hotspot_id;
             $data['mac_address'] = 'D4:F4:6F:E4:03:DD';
-            $data['browser'] = 'iPhone/Safari';
+            $data['browser'] = $browser[0];
 
             $this->db->insert('requests',$data);
         }
