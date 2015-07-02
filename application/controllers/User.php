@@ -20,7 +20,7 @@ class User extends CI_Controller {
     public function logout()
     {
         unset($_SESSION['login']);
-        header('Location: /hotspot');
+        header('Location: /');
     }
 
     public function login()
@@ -43,7 +43,7 @@ class User extends CI_Controller {
 
             if($this->form_validation->run() == false)
             {
-                header('Location: /hotspot');
+                header('Location: /');
             }
             else
             {
@@ -59,7 +59,7 @@ class User extends CI_Controller {
                     $array = array('login' => $login);
                     $this->session->set_userdata($array);
 
-                    header('Location: /hotspot');
+                    header('Location: /');
                 }
                 else
                 {
@@ -84,7 +84,7 @@ class User extends CI_Controller {
         }
         else
         {
-            header('Location: /hotspot');
+            header('Location: /');
         }
     }
 
@@ -114,7 +114,7 @@ class User extends CI_Controller {
         }
         else
         {
-            header('Location: /hotspot');
+            header('Location: /');
         }
 
     }
@@ -196,7 +196,7 @@ class User extends CI_Controller {
         }
         else
         {
-            header('Location: /hotspot');
+            header('Location: /');
         }
 
     }
@@ -278,7 +278,7 @@ class User extends CI_Controller {
         }
         else
         {
-            header('Location: /hotspot');
+            header('Location: /');
         }
     }
 
@@ -292,15 +292,23 @@ class User extends CI_Controller {
         }
         else
         {
-            header('Location: /hotspot');
+            header('Location: /');
         }
 
     }
 
-    public function hotspot_request($count,$hotspot_id = '4daa5936'){
+    public function hotspot_request($count,$hotspot_id = '4daa5936')
+    {
+        if(isset($_SESSION['login']))
+        {
+            $this->load->model('users');
+            $this->users->hotspot_request($count, $hotspot_id);
+        }
+        else
+        {
+            header('Location: /');
+        }
 
-        $this->load->model('users');
-        $this->users->hotspot_request($count,$hotspot_id);
     }
 
 }

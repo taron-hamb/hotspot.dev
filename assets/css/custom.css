@@ -308,6 +308,9 @@ label:hover:before {
 .icons_td{
     width: 25px;
 }
+.icons_td a{
+    display: block;
+}
 
 
 /*.btn3d {*/

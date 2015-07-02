@@ -70,7 +70,6 @@ class Users extends CI_Model
         redirect($_SERVER['HTTP_REFERER']);
     }
 
-
     public function hotspot_request($count,$hotspot_id){
 
         $now = date('Y-m-d H:i:s');
