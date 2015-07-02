@@ -297,10 +297,10 @@ class User extends CI_Controller {
 
     }
 
-    public function hotspot_request($count){
+    public function hotspot_request($count,$hotspot_id = '4daa5936'){
 
         $this->load->model('users');
-        $this->users->hotspot_request($count);
+        $this->users->hotspot_request($count,$hotspot_id);
     }
 
 }
