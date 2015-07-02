@@ -33,7 +33,7 @@ if(isset($_SESSION['login'])) {
 <?php
             $from =  date('Y-m-d',$from_time);
             $to = date('Y-m-d',$to_time);
-            echo '<td>From '.$from.' To '.$to.'&nbsp;</td><td class="icons_td"><a href="'.base_url().'user/get_excel/'.$from_time.'/'.$to_time.'/" data-toggle="tooltip" data-placement="top" title="Download Excel"><img src="/assets/img/excel.png" ></a></td><td class="icons_td"><a href="'.base_url().'user/get_csv/'.$from_time.'/'.$to_time.'/" data-toggle="tooltip" data-placement="top" title="Download CSV"><img src="/assets/img/csv.png"></a></td>&nbsp;<td class="icons_td"><a href="'.base_url().'user/delete/'.$from_time.'/'.$to_time.'/" data-toggle="tooltip" data-placement="top" title="Delete"><img src="/assets/img/delete.png"></a></td>';
+            echo '<td class="text-primary">From '.$from.' To '.$to.'&nbsp;</td><td class="icons_td"><a href="'.base_url().'user/get_excel/'.$from_time.'/'.$to_time.'/" data-toggle="tooltip" data-placement="top" title="Download Excel"><i class="fa fa-file-excel-o fa-2x text-success"></i></a></td><td class="icons_td"><a href="'.base_url().'user/get_csv/'.$from_time.'/'.$to_time.'/" data-toggle="tooltip" data-placement="top" title="Download CSV"><i class="fa fa-file-text fa-2x text-primary"></i></a></td>&nbsp;<td class="icons_td"><a href="'.base_url().'user/delete/'.$from_time.'/'.$to_time.'/" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-times fa-2x text-danger"></i></a></td>';
             $to_time += $days;
             $from_time += $days;
             if($to_time > $to_last){

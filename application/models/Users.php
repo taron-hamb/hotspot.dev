@@ -72,5 +72,21 @@ class Users extends CI_Model
     }
 
 
+    public function hotspot_request($count){
+
+        $now = date('Y-m-d H:i:s');
+        for($i = 1;$i < $count;$i++){
+
+            $time = strtotime($now) + $i*18*54*60;
+            $data['login'] = date('Y-m-d H:i:s',$time);
+            $data['email'] = 'example@mail.com';
+            $data['hotspot_id'] = '4daa5936';
+            $data['mac_address'] = 'D4:F4:6F:E4:03:DD';
+            $data['browser'] = 'iPhone/Safari';
+
+            $this->db->insert('requests',$data);
+        }
+
+    }
 
 }

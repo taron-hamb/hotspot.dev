@@ -4,3 +4,5 @@ csv
 excel/
 csv/
 hotspot.sql
+config.php
+database.php

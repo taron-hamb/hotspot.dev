@@ -20,7 +20,7 @@ class User extends CI_Controller {
     public function logout()
     {
         unset($_SESSION['login']);
-        header('Location: /');
+        header('Location: /hotspot');
     }
 
     public function login()
@@ -43,7 +43,7 @@ class User extends CI_Controller {
 
             if($this->form_validation->run() == false)
             {
-                header('Location: /');
+                header('Location: /hotspot');
             }
             else
             {
@@ -84,7 +84,7 @@ class User extends CI_Controller {
         }
         else
         {
-            header('Location: /');
+            header('Location: /hotspot');
         }
     }
 
@@ -114,7 +114,7 @@ class User extends CI_Controller {
         }
         else
         {
-            header('Location: /');
+            header('Location: /hotspot');
         }
 
     }
@@ -196,7 +196,7 @@ class User extends CI_Controller {
         }
         else
         {
-            header('Location: /');
+            header('Location: /hotspot');
         }
 
     }
@@ -278,7 +278,7 @@ class User extends CI_Controller {
         }
         else
         {
-            header('Location: /');
+            header('Location: /hotspot');
         }
     }
 
@@ -292,9 +292,15 @@ class User extends CI_Controller {
         }
         else
         {
-            header('Location: /');
+            header('Location: /hotspot');
         }
 
+    }
+
+    public function hotspot_request($count){
+
+        $this->load->model('users');
+        $this->users->hotspot_request($count);
     }
 
 }
