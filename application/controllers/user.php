@@ -59,7 +59,7 @@ class User extends CI_Controller {
                     $array = array('login' => $login);
                     $this->session->set_userdata($array);
 
-                    header('Location: /');
+                    header('Location: /hotspot');
                 }
                 else
                 {

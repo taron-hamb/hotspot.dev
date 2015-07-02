@@ -14,8 +14,9 @@ class Users extends CI_Model
         $this->db->where('login', $login);
         $this->db->where('password', md5($password));
         $query = $this->db->get('users');
+        $result = $query->result_array();
 
-        if ($query->result_id->num_rows == 1) {
+        if ($result) {
             return true;
         } else {
             return false;
@@ -50,8 +51,6 @@ class Users extends CI_Model
 
         sort($sort);
 
-//        $from_time = strtotime($sort[0]) - 60 * 60 * 24;
-//        $to_time = strtotime($sort[count($sort) - 1]);
         return $sort;
 
     }
@@ -67,7 +66,7 @@ class Users extends CI_Model
 
     public function delete($from_time, $to_time){
 
-        $result = $this->db->query("DELETE FROM requests WHERE UNIX_TIMESTAMP(login) BETWEEN '$from_time' AND '$to_time'");
+        $this->db->query("DELETE FROM requests WHERE UNIX_TIMESTAMP(login) BETWEEN '$from_time' AND '$to_time'");
         redirect($_SERVER['HTTP_REFERER']);
     }
 
@@ -79,9 +78,9 @@ class Users extends CI_Model
         $browser = ['iPhone/Safari','Windows/Chrome','Linux/Chrome'];
         $email = 'abcdefghijklmnopqrstuvwxyz';
         for($i = 1;$i < $count;$i = $i + 7){
-          $em_shuff = str_shuffle($email);
+            $em_shuff = str_shuffle($email);
             $em = substr($em_shuff,0,7);
-           shuffle($browser);
+            shuffle($browser);
             $time = strtotime($now) + $i*18*54*36;
             $data['login'] = date('Y-m-d H:i:s',$time);
             $data['email'] = $em.'@gmail.com';
