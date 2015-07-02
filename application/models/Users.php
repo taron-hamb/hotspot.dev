@@ -58,15 +58,20 @@ class Users extends CI_Model
     public function get_excel($from_time, $to_time)
     {
 
-        $result = $this->db->query("SELECT * FROM requests WHERE UNIX_TIMESTAMP(login) BETWEEN '$from_time' AND '$to_time'");
+        $result = $this->db->query("SELECT * FROM requests WHERE UNIX_TIMESTAMP(login) >= '$from_time' AND UNIX_TIMESTAMP(login) <= '$to_time'");
 
         return $result->result_array();
 
     }
+    public function get_one_item($time){
 
+       $this->db->where('login',$time);
+        $result = $this->db->get('requests');
+        return $result->result_array();
+    }
     public function delete($from_time, $to_time){
 
-        $this->db->query("DELETE FROM requests WHERE UNIX_TIMESTAMP(login) BETWEEN '$from_time' AND '$to_time'");
+        $this->db->query("DELETE FROM requests WHERE UNIX_TIMESTAMP(login) >= '$from_time' AND UNIX_TIMESTAMP(login) <= '$to_time'");
         redirect($_SERVER['HTTP_REFERER']);
     }
 
@@ -89,7 +94,7 @@ class Users extends CI_Model
 
             $this->db->insert('requests',$data);
         }
-
+        header('Location: /');
     }
 
 }

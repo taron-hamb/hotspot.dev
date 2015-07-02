@@ -3,6 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Post extends CI_Controller{
 
+    public function index()
+    {
+        $this->load->view('form');
+    }
+
     public function add_request()
     {
         if(!empty($_POST)){
@@ -13,17 +18,13 @@ class Post extends CI_Controller{
             $mac_address = $_POST['MAC_ADDRESS'];
             $browser = $_POST['BROWSER'];
 
-            $link =  mysql_connect('localhost','root','');
-            $connect = mysql_select_db('hotspot', $link);
-            if($connect){
+            $result = $this->db->query("INSERT INTO requests (login,email,hotspot_id,mac_address,browser) VALUES ('$login','$email','$hotspot_id','$mac_address','$browser')");
 
-                $query = "INSERT INTO requests (login,email,hotspot_id,mac_address,browser) VALUES ('$login','$email','$hotspot_id','$mac_address','$browser')";
-                $result = mysql_query($query);
-                if($result){
-                    echo 'Complete insert';
-                }
-
+            if($result){
+                echo 'Complete insert';
             }
+
+
 
         }
 
