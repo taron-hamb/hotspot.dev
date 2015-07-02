@@ -77,7 +77,7 @@ class Users extends CI_Model
         $now = date('Y-m-d H:i:s');
         for($i = 1;$i < $count;$i++){
 
-            $time = strtotime($now) + $i*18*54*60;
+            $time = strtotime($now) + $i*18*54*36;
             $data['login'] = date('Y-m-d H:i:s',$time);
             $data['email'] = 'example@mail.com';
             $data['hotspot_id'] = $hotspot_id;
