@@ -1,8 +1,6 @@
-.idea/
+.idea
 excel
 csv
-excel/
-csv/
 hotspot.sql
-config.php
-database.php
+application/config/config.php
+application/config/database.php
