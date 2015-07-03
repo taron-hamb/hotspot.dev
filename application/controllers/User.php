@@ -131,7 +131,7 @@ class User extends CI_Controller
                     }
 
                 }
-
+                $data['hotspot_id'] = $hotspot_id;
                 $data['from_to_times'] = $excel_array;
                 $this->load->view('all_hotspots', $data);
             }else {

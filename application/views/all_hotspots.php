@@ -16,11 +16,14 @@ if(isset($_SESSION['login'])) {
                 </div>
             </div>
             <table class="table table-striped table-hover table-bordered">
-
+                <tr>
+                    <th><?php echo $hotspot_id;  ?></th>
+                </tr>
 <?php
 
         foreach ($from_to_times as $from_to_time) {
 ?>
+
             <tr>
 <?php
 
