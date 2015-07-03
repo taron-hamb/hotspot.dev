@@ -80,58 +80,63 @@ class User extends CI_Controller
             if (isset($hotspot_id)) {
                 $this->load->model('users');
                 $time = $this->users->get_hotspot($hotspot_id);
+                if (!empty($time)) {
+
+
 
                 $days = 14 * 24 * 60 * 60;
 
 
-                $from_time = strtotime($time[0]) - 5*60*60;
+                $from_time = strtotime($time[0]);
 //                print_r($from_time);
-                $to_last = strtotime(end($time))  + 24*60*60;
+                $to_last = strtotime(end($time));
 
 
-                    $to_time = $from_time + $days;
-                    $now = strtotime('now');
-                    $to = date('Y-m-d', $to_time);
-                    $from = date('Y-m-d', $from_time);
+                $to_time = $from_time + $days;
+                $now = strtotime('now');
+                $to = date('Y-m-d H:i:s', $to_time);
+                $from = date('Y-m-d H:i:s', $from_time);
+                if ($to_time > $to_last) {
+
+                    $to_time = $to_last;
+                }
+                $excel_array = array();
+
+                while ($to_time <= $to_last) {
+
+
+                    $from = date('Y-m-d H:i:s', $from_time);
+                    $to = date('Y-m-d H:i:s', $to_time);
+                    $this->load->model('users');
+                    $result = $this->users->get_excel($from, $to);
+
+                    if (!empty($result)) {
+                        $from_to = array();
+                        $from_to['from'] = $from;
+                        $from_to['to'] = $to;
+
+                        array_push($excel_array, $from_to);
+
+                    }
+
+                    $to_time += $days;
+                    $from_time += $days;
                     if ($to_time > $to_last) {
 
                         $to_time = $to_last;
                     }
-                    $excel_array = array();
+                    if ($from_time > $to_last) {
 
-                    while ($to_time <= $to_last) {
-
-
-                        $from = date('Y-m-d', $from_time);
-                        $to = date('Y-m-d', $to_time);
-                        $this->load->model('users');
-                        $result = $this->users->get_excel($from_time, $to_time);
-
-                        if (!empty($result)) {
-                            $from_to = array();
-                            $from_to['from'] = $from;
-                            $from_to['to'] = $to;
-
-                            array_push($excel_array, $from_to);
-
-                        }
-
-                        $to_time += $days;
-                        $from_time += $days;
-                        if ($to_time > $to_last) {
-
-                            $to_time = $to_last;
-                        }
-                        if ($from_time > $to_last) {
-
-                            break;
-                        }
-
+                        break;
                     }
+
+                }
 
                 $data['from_to_times'] = $excel_array;
                 $this->load->view('all_hotspots', $data);
-
+            }else {
+                    header('Location: /');
+                }
 
             } else {
                 $this->load->model('users');

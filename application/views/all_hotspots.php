@@ -23,11 +23,14 @@ if(isset($_SESSION['login'])) {
 ?>
             <tr>
 <?php
+
+                $from_time = substr($from_to_time['from'],0,-9);
+                $to_time =  substr($from_to_time['to'],0,-9);
+
+
                 $from = $from_to_time['from'];
-                $to =  $from_to_time['to'];
-                $from_time = strtotime($from);
-                $to_time = strtotime($to);
-                echo '<td class="text-primary">From '.$from.' To '.$to.'&nbsp;</td><td class="icons_td"><a href="'.base_url().'user/get_excel/'.$from_time.'/'.$to_time.'/" data-toggle="tooltip" data-placement="top" title="Download Excel"><i class="fa fa-file-excel-o fa-2x text-success"></i></a></td><td class="icons_td"><a href="'.base_url().'user/get_csv/'.$from_time.'/'.$to_time.'/" data-toggle="tooltip" data-placement="top" title="Download CSV"><i class="fa fa-file-text fa-2x text-primary"></i></a></td>&nbsp;<td class="icons_td"><a href="'.base_url().'user/delete/'.$from_time.'/'.$to_time.'/" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-times fa-2x text-danger"></i></a></td>';
+                $to = $from_to_time['to'];
+                echo '<td class="text-primary">From '.$from_time.' To '.$to_time.'&nbsp;</td><td class="icons_td"><a href="'.base_url().'user/get_excel/'.$from.'/'.$to.'/" data-toggle="tooltip" data-placement="top" title="Download Excel"><i class="fa fa-file-excel-o fa-2x text-success"></i></a></td><td class="icons_td"><a href="'.base_url().'user/get_csv/'.$from.'/'.$to.'/" data-toggle="tooltip" data-placement="top" title="Download CSV"><i class="fa fa-file-text fa-2x text-primary"></i></a></td>&nbsp;<td class="icons_td"><a href="'.base_url().'user/delete/'.$from.'/'.$to.'/" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-times fa-2x text-danger"></i></a></td>';
 
 ?>
             </tr>

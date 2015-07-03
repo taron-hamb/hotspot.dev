@@ -57,21 +57,29 @@ class Users extends CI_Model
 
     public function get_excel($from_time, $to_time)
     {
-
-        $result = $this->db->query("SELECT * FROM requests WHERE UNIX_TIMESTAMP(login) >= '$from_time' AND UNIX_TIMESTAMP(login) <= '$to_time'");
+        $from_time = str_replace('%20',' ',$from_time);
+        $to_time = str_replace('%20',' ',$to_time);
+        $result = $this->db->query("SELECT * FROM requests WHERE login >= '$from_time' AND login <= '$to_time'");
 
         return $result->result_array();
 
     }
+
     public function get_one_item($time){
 
        $this->db->where('login',$time);
         $result = $this->db->get('requests');
         return $result->result_array();
     }
+
     public function delete($from_time, $to_time){
 
-        $this->db->query("DELETE FROM requests WHERE UNIX_TIMESTAMP(login) >= '$from_time' AND UNIX_TIMESTAMP(login) <= '$to_time'");
+        $from_time = str_replace('%20',' ',$from_time);
+        $to_time = str_replace('%20',' ',$to_time);
+//        var_dump($rep_time);
+//        exit;
+        $this->db->query("DELETE FROM requests  WHERE login >= '$from_time' AND login <= '$to_time'");
+//        print_r($from_time);
         redirect($_SERVER['HTTP_REFERER']);
     }
 
