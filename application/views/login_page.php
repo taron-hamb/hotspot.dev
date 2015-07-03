@@ -7,7 +7,7 @@ else{
 ?>
 
     <div class="text-center" style="padding:50px 0">
-        <div class="logo">login</div>
+        <div class="logo">Barev Taron! :D</div>
         <!-- Main Form -->
         <div class="login-form-1">
             <form id="login-form" action="<?php echo base_url(); ?>user/login" method="post" class="text-left">
