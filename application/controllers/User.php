@@ -18,7 +18,7 @@ class User extends CI_Controller
     public function logout()
     {
         unset($_SESSION['login']);
-        header('Location: /');
+        header('Location: '.base_url());
     }
 
     public function login()
@@ -37,7 +37,7 @@ class User extends CI_Controller
             $this->form_validation->set_rules('password', 'trim|required|md5');
 
             if ($this->form_validation->run() == false) {
-                header('Location: /');
+                header('Location: '.base_url());
             } else {
                 $login = $this->input->post('login');
                 $password = $this->input->post('password');
@@ -50,7 +50,7 @@ class User extends CI_Controller
                     $array = array('login' => $login);
                     $this->session->set_userdata($array);
 
-                    header('Location: /');
+                    header('Location: '.base_url());
                 } else {
                     $message['message'] = 'Please try again';
                     $this->load->view('login_page', $message);
@@ -70,7 +70,7 @@ class User extends CI_Controller
             $hotspots['hotspots'] = $this->users->get_hotspots();
             $this->load->view('all_hotspots', $hotspots);
         } else {
-            header('Location: /');
+            header('Location: '.base_url());
         }
     }
 
@@ -135,7 +135,7 @@ class User extends CI_Controller
                 $data['from_to_times'] = $excel_array;
                 $this->load->view('all_hotspots', $data);
             }else {
-                    header('Location: /');
+                    header('Location: '.base_url());
                 }
 
             } else {
@@ -146,7 +146,7 @@ class User extends CI_Controller
             }
 
         } else {
-            header('Location: /');
+            header('Location: '.base_url());
         }
 
     }
@@ -225,7 +225,7 @@ class User extends CI_Controller
             $objWriter->save('php://output');
 
         } else {
-            header('Location: /');
+            header('Location: '.base_url());
         }
 
     }
@@ -304,7 +304,7 @@ class User extends CI_Controller
             header('Cache-Control: max-age=0');
             $objWriter->save('php://output');
         } else {
-            header('Location: /');
+            header('Location: '.base_url());
         }
     }
 
@@ -315,7 +315,7 @@ class User extends CI_Controller
             $this->users->delete($from_time, $to_time);
             $this->load->view('all_hotspots');
         } else {
-            header('Location: /');
+            header('Location: '.base_url());
         }
 
     }
@@ -326,7 +326,7 @@ class User extends CI_Controller
             $this->load->model('users');
             $this->users->hotspot_request($count, $hotspot_id);
         } else {
-            header('Location: /');
+            header('Location: '.base_url());
         }
 
     }

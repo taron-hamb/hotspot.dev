@@ -102,7 +102,7 @@ class Users extends CI_Model
 
             $this->db->insert('requests',$data);
         }
-        header('Location: /');
+        header('Location: '.base_url());
     }
 
 }

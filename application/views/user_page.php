@@ -9,12 +9,8 @@ if (isset($_SESSION['login'])) {
         <?php
         ?>
         <div class="row log_out_panel">
-            <div class="col-xs-9">
-                <h4>Your login: <?php echo $_SESSION['login'] ?></h4>
-            </div>
-            <div class="col-xs-3 log_out">
+            <div class="col-xs-12 log_out">
                 <a href="<?php echo base_url(); ?>user/logout"><button type="submit" class="btn btn-success btn3d btn-md">Log Out</button></a>
-<!--                <button type="button" class="btn3d btn btn-default btn-lg"><span class="glyphicon glyphicon-download-alt"></span> Default</button>-->
             </div>
 
         </div>
