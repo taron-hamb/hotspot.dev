@@ -17,7 +17,7 @@ if(isset($_SESSION['login'])) {
             </div>
             <table class="table table-striped table-hover table-bordered">
                 <tr>
-                    <th><?php echo $hotspot_id;  ?></th>
+                    <th colspan="4"><?php echo $hotspot_id;  ?></th>
                 </tr>
 <?php
 
