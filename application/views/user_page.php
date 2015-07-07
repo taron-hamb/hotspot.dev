@@ -18,7 +18,7 @@ if (isset($_SESSION['login'])) {
         ?>
         <table class="table table-striped table-bordered">
             <tr>
-                <th>Hotspot_id</th>
+                <th>Hotspot ID</th>
             </tr>
             <?php foreach ($hotspot_id as $hotspot):?>
             <tr>
