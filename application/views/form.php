@@ -1,4 +1,4 @@
-<form action="<?php echo base_url();?>post/add_request" method="post">
+<form action="<?php echo base_url();?>post/index" method="post">
     <table>
         <tr>
             <td>
